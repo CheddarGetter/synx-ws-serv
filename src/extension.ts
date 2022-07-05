@@ -77,15 +77,14 @@ export function activate(context: vscode.ExtensionContext) {
 			};
 			let editor = vscode.window.activeTextEditor;
         	if (editor) {
-				connected_user.sendUTF(editor.document.getText());
+				connected_user.sendUTF(editor.document.fileName, editor.document.getText());
         	}
 		})
 	);
 
 	let runItem: vscode.StatusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left); // hi nexure
 	runItem.command = "synx-ws-serv.execute"; // its just 5 lines pls dont kill me
-	runItem.tooltip = "hi nexure, thanks"; // see its not completely copy pasted
-	runItem.text = "$(debug-start) Synapse Execute"; // i even made it cooler, just look at this triangle, its way cooler
+	runItem.text = "$(debug-start) Execute"; // i even made it cooler, just look at this triangle, its way cooler
 	runItem.show(); // bye nexure
 }
 
